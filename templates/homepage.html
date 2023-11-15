@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<body>
+    <h1>Welcome to Madlibs!</h1>
+    <form action="/story" method="post">
+        {% for prompt in prompts %}
+            <label>{{ prompt.capitalize() }}:</label>
+            <input type="text" name="{{ prompt }}" required><br>
+        {% endfor %}
+        <input type="submit" value="Generate Story">
+    </form>
+</body>
+</html>
+{% endblock %}
